@@ -16,8 +16,8 @@ at the cinema box office standing in a huge line. Each of them has a single
   Examples:
 
 tickets([25, 25, 50]) // => YES
-tickets([25, 100]) // => NO. Vasya will not have enough money to give change to 100 dollars
-tickets([25, 25, 50, 50, 100]) // => NO. Vasya will not have the right bills to give 75 dollars of change (you can't make two bills of 25 from one of 50)
+tickets([25, 100]) // => NO.
+tickets([25, 25, 50, 50, 100]) // => NO
 
 */
 
@@ -37,3 +37,7 @@ const tickets = peopleInLine => {
   }
   return 'YES';
 };
+
+tickets([25, 25, 50]); // => YES
+tickets([25, 100]); // => NO.
+tickets([25, 25, 50, 50, 100]); // NO

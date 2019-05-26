@@ -42,11 +42,11 @@
  */
 
 const queueTime = (customers, n) => {
-  let total = 0,
-      temp = [];
-  for(let i = 0; i <= customers.length; i += n) {
-    for(let j = 0; j <= n; j++) {
-      
-    }
+  const queue = Array(n).fill(0);
+  for (const customer of customers) {
+    queue[0] += customer;
+    queue.sort((a, b) => a - b);
   }
+  //return queue.pop();
+  return (queue);
 };
