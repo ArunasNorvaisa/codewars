@@ -48,5 +48,5 @@ const queueTime = (customers, n) => {
     queue.sort((a, b) => a - b);
   }
   //return queue.pop();
-  return (queue);
+  return Math.max(queue);
 };
