@@ -48,7 +48,7 @@ const chooseBestSum = (t, k, ls) => {
       return;
     }
     for (let i = lastIndex + 1 || 0; i < ls.length; i++) {
-      sumThemUp(towns.concat(ls[i]), i);
+      sumThemUp([...towns, ls[i]], i);
     }
   };
   sumThemUp();
