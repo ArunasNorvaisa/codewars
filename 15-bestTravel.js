@@ -38,8 +38,7 @@
 
 const chooseBestSum = (t, k, ls) => {
   let totalDistance = 0;
-  const sumThemUp = (towns, lastIndex) => {
-    towns = towns || [];
+  const sumThemUp = (towns = [], lastIndex) => {
     if (towns.length === k) {
       const tempDistance = towns.reduce((x, y) => x + y);
       if (tempDistance <= t && tempDistance > totalDistance) {
@@ -52,6 +51,7 @@ const chooseBestSum = (t, k, ls) => {
     }
   };
   sumThemUp();
+  console.log(totalDistance || null);
   return totalDistance || null;
 };
 
