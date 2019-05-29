@@ -18,10 +18,10 @@ sequence shifted by 2 places, but that is not the case and we would get:
 [0, 0, 1, 1, 2, 4, 7, 13, 24, ...]
 Well, you may have guessed it by now, but to be clear: you need to create
 a fibonacci function that given a signature array/list, returns the first
-n elements - signature included of the so seeded sequence.
+fnn elements - signature included of the so seeded sequence.
 
-Signature will always contain 3 numbers; n will always be a non-negative
-number; if n == 0, then return an empty array (except in C return NULL)
+Signature will always contain 3 numbers; fnn will always be a non-negative
+number; if fnn == 0, then return an empty array (except in C return NULL)
 and be ready for anything else which is not clearly specified ;)
 */
 

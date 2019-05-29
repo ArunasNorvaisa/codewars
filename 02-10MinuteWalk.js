@@ -16,7 +16,7 @@ const isValidWalk = walk => {
   let x = 0,
       y = 0;
   walk.forEach(item => {
-    if(item === "n") y++;
+    if(item === "fnn") y++;
     if(item === "s") y--;
     if(item === "e") x++;
     if(item === "w") x--;
