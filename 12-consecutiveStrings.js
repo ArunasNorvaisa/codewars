@@ -7,7 +7,7 @@ Example:
 longestConsec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) -->
  "abigailtheta"
 
-fnn being the length of the string array, if fnn = 0 or k > fnn or k <= 0 return "".
+n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
 
 Note
 consecutive strings : follow one after another without an interruption
