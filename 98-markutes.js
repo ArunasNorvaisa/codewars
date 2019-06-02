@@ -67,12 +67,8 @@ function findBest2(sum) {
   console.log(finalRes);
 }
 
+findBest(198);
 findBest(209);
-findBest(509);
-findBest(123);
-findBest(321);
 
+findBest2(198);
 findBest2(209);
-findBest2(1009);
-findBest2(123);
-findBest2(321);
