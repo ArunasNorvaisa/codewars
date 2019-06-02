@@ -67,6 +67,7 @@ const brainLuck = (code, input) => {
       case '[':
         instruction++;
         loopNumber++;
+        data[dataPtr] = data[dataPtr] || 0;
         if(data[dataPtr] === 0){
           const temp = loopNumber;
           while(loopNumber >= temp) {
@@ -77,6 +78,7 @@ const brainLuck = (code, input) => {
         }
         break;
       case ']':
+        data[dataPtr] = data[dataPtr] || 0;
         if(data[dataPtr] !== 0){
           const temp = loopNumber;
           while(loopNumber >= temp) {
@@ -97,12 +99,10 @@ const brainLuck = (code, input) => {
 
 
 // Echo until byte(255) encountred
-  console.log(brainLuck(',+[-.,+]','Codewars'+String.fromCharCode(255))); // 'Codewars'
+console.log(brainLuck(',+[-.,+]','Codewars'+String.fromCharCode(255))); // 'Codewars'
 
 // Echo until byte(0) encountred
 console.log(brainLuck(',[.[-],]','Codewars'+String.fromCharCode(0))); //'Codewars'
 
 // Two numbers multiplier
 console.log(brainLuck(',>,<[>[->+>+<<]>>[-<<+>>]<<<-]>>.', String.fromCharCode(8,9)));// String.fromCharCode(72)
-
-console.log(String.fromCharCode(72));
