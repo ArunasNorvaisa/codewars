@@ -31,8 +31,8 @@ const score = dice => {
       fours  = 0,
       fives  = 0,
       sixes  = 0;
-  dice.forEach(item => {
-    switch (item) {
+  dice.forEach(die => {
+    switch (die) {
       case 1:
         ones += 1;
         break;
@@ -50,7 +50,6 @@ const score = dice => {
         break;
       case 6:
         sixes += 1;
-        break;
     }
   });
   let result = Math.floor(ones / 3) * 1000 + (ones % 3) * 100;
@@ -63,7 +62,7 @@ const score = dice => {
   return result;
 };
 
-// console.log(score([2, 3, 4, 6, 2]));// == 0,   "Should be 0 :-("
-// console.log(score([4, 4, 4, 3, 3]));// == 400, "Should be 400"
-// console.log(score([2, 4, 4, 5, 4]));// == 450, "Should be 450"
+console.log(score([2, 3, 4, 6, 2]));// == 0,   "Should be 0 :-("
+console.log(score([4, 4, 4, 3, 3]));// == 400, "Should be 400"
+console.log(score([2, 4, 4, 5, 4]));// == 450, "Should be 450"
 console.log(score([6, 6, 6, 3, 3]));// == 600, "Should be 600"
