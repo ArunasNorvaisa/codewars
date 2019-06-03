@@ -19,4 +19,4 @@ const getMiddle = s => {
   const middle = Math.ceil(s.length / 2 - 1);
   s = s.substring(middle, s.length - middle);
   return s;
-}
+};

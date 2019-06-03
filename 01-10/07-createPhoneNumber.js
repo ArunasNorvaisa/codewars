@@ -14,4 +14,4 @@ const createPhoneNumber = numbers => {
     temp = temp.replace(/n/, numbers[i]);
   }
   return temp;
-}
+};

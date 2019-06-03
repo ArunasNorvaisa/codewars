@@ -22,6 +22,6 @@ const isValidWalk = walk => {
     if(item === "w") x--;
   });
   return (walk.length === 10) && (x === 0 && y === 0);
-}
+};
 
 

@@ -24,7 +24,7 @@ const persistence = num => {
   }
   console.log(pers);
   return pers;
-}
+};
 
 persistence(12);
 persistence(999);
