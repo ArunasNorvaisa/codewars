@@ -14,6 +14,7 @@ Note: Assume all the cows are alive after n years.
 */
 
 const countCows = years => {
+  if(Array.isArray(years) && years.length === 0) return null;
   const cowsByAge = [1, 0, 0, 0];
   let cowsTotal = 0;
   for(let i = 0; i <= years; i++) {
@@ -23,8 +24,7 @@ const countCows = years => {
     cowsByAge[1] = cowsByAge[0];
     cowsByAge[0] = cowsByAge[3];
   }
-  console.log('cows', cowsTotal);
-  return cowsTotal;
+  return cowsTotal || null;
 };
 
 countCows(0);
