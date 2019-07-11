@@ -54,32 +54,31 @@ You should only ever output 0, 1, or 2.
 
 const isInteresting = (number, awesomePhrases) => {
 
-  const yes = nmbr => {
+  const interesting = nmbr => {
     if (nmbr < 100 || nmbr > 999999999) return false;
-    let interesting = false;
     const rgx = new RegExp(nmbr);
     nmbr = nmbr.toString();
-    // Checking in awesomePhrases
-    interesting = awesomePhrases.some(item => item.toString() === nmbr);
+    // Checking if it's in in awesomePhrases
+    if (awesomePhrases.some(item => item.toString() === nmbr)) return true;
     // Checking if nmbr is decrementing
-    if (rgx.test('9876543210')) interesting = true;
+    if (rgx.test('9876543210')) return true;
     // Checking if nmbr is incrementing
-    if (rgx.test('1234567890')) interesting = true;
+    if (rgx.test('1234567890')) return true;
     // Checking if it's a digit followed by 2-8 zeroes
-    if (/^\d0{2,8}$/.test(nmbr)) interesting = true;
+    if (/^\d0{2,8}$/.test(nmbr)) return true;
     // Checking if it's palindromic
-    if (nmbr === nmbr.split('').reverse().join('')) interesting = true;
-    return interesting;
+    if (nmbr === nmbr.split('').reverse().join('')) return true;
+    return false;
   };
   
-  if (yes(number)) return 2;
-  if (yes(number + 1)) return 1;
-  if (yes(number + 2)) return 1;
+  if (interesting(number)) return 2;
+  if (interesting(number + 1)) return 1;
+  if (interesting(number + 2)) return 1;
   return 0;
 };
 
-console.log('L81 isInteresting(1000, []) ===', isInteresting(1000, []));
-console.log('L82 isInteresting(22222, [999, 9]) ===', isInteresting(22222, [999, 9]));
-console.log('L83 isInteresting(125521, [999, 9]) ===', isInteresting(125521, [999, 9]));
-console.log('L84 isInteresting(125519, [999, 9]) ===', isInteresting(125519, [999, 9]));
-console.log('L85 isInteresting(80083, [80085]) ===', isInteresting(80083, [80085]));
+console.log('L80 isInteresting(1000, []) ===', isInteresting(1000, []));
+console.log('L81 isInteresting(22222, [999, 9]) ===', isInteresting(22222, [999, 9]));
+console.log('L82 isInteresting(125521, [999, 9]) ===', isInteresting(125521, [999, 9]));
+console.log('L83 isInteresting(125519, [999, 9]) ===', isInteresting(125519, [999, 9]));
+console.log('L84 isInteresting(80083, [80085]) ===', isInteresting(80083, [80085]));
