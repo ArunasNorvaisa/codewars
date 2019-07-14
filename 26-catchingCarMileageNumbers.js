@@ -56,17 +56,16 @@ const isInteresting = (number, awesomePhrases) => {
 
   const interesting = nmbr => {
     if (nmbr < 100 || nmbr > 999999999) return false;
-    const rgx = new RegExp(nmbr);
     nmbr = nmbr.toString();
     // Checking if it's in in awesomePhrases
     if (awesomePhrases.some(item => item.toString() === nmbr)) return true;
     // Checking if nmbr is decrementing
-    if (rgx.test('9876543210')) return true;
+    if ('9876543210'.includes(nmbr)) return true;
     // Checking if nmbr is incrementing
-    if (rgx.test('1234567890')) return true;
+    if ('1234567890'.includes(nmbr)) return true;
     // Checking if it's a digit followed by 2-8 zeroes
     if (/^\d0{2,8}$/.test(nmbr)) return true;
-    // Checking if it's palindromic
+    // Checking if it's palindromic (this includes also 'every digit the same number' check)
     if (nmbr === nmbr.split('').reverse().join('')) return true;
     return false;
   };
@@ -77,8 +76,8 @@ const isInteresting = (number, awesomePhrases) => {
   return 0;
 };
 
-console.log('L80 isInteresting(1000, []) ===', isInteresting(1000, []));
-console.log('L81 isInteresting(22222, [999, 9]) ===', isInteresting(22222, [999, 9]));
-console.log('L82 isInteresting(125521, [999, 9]) ===', isInteresting(125521, [999, 9]));
-console.log('L83 isInteresting(125519, [999, 9]) ===', isInteresting(125519, [999, 9]));
-console.log('L84 isInteresting(80083, [80085]) ===', isInteresting(80083, [80085]));
+console.log('L79 isInteresting(1000, []) ===', isInteresting(1000, []));
+console.log('L80 isInteresting(22222, [999, 9]) ===', isInteresting(22222, [999, 9]));
+console.log('L81 isInteresting(125521, [999, 9]) ===', isInteresting(125521, [999, 9]));
+console.log('L82 isInteresting(125519, [999, 9]) ===', isInteresting(125519, [999, 9]));
+console.log('L83 isInteresting(80083, [80085]) ===', isInteresting(80083, [80085]));
