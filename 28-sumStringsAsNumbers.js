@@ -11,26 +11,20 @@ A string representation of an integer will contain no characters besides the ten
 const sumStrings = (a, b) => {
   let sum = '',
       tmp = 0;
-  // Calculating length difference
-  const diff = a.length - b.length;
   // Making lengths equal by adding leading zeros where necessary
-  if (diff < 0) a = '0'.repeat(Math.abs(diff)) + a;
-  if (diff > 0) b = '0'.repeat(diff) + b;
+  a = a.padStart(b.length, '0');
+  b = b.padStart(a.length, '0');
   for (let i = a.length - 1; i >= 0; i--) {
-    tmp = Number(a[i]) + Number(b[i]) + tmp;
-    if (tmp.toString().length === 1) {
-      sum = tmp.toString() + sum;
-      tmp = 0;
-    }
-    else {
-      sum = tmp.toString()[1] + sum;
-      tmp = 1;
-    }
+    tmp = ~~a[i] + ~~b[i] + tmp;
+    sum = (tmp % 10).toString() + sum;
+    tmp = tmp.toString().length === 1 ? 0 : 1;
   }
   if (tmp === 1) sum = '1' + sum;
   // Removing leading zeros, if any
   return sum.replace(/^0+/, '');
 };
 
-console.log('L35 sumStrings(967567273657864998918637863471567236575671642536,' +
-  ' 2385786726745671563269365786273657273656757936547) ===', sumStrings('967567273657864998918637863471567236575671642536', '2385786726745671563269365786273657273656757936547'));
+console.log('L27 sumStrings(96756727365786499891863786347156723657567164,' +
+  ' 238578672674567156326936578627365727365675793) ===', sumStrings('96756727365786499891863786347156723657567164', '238578672674567156326936578627365727365675793'));
+
+console.log('L30 sumStrings(99, 000777) ===', sumStrings('99', '000777'));
