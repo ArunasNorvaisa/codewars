@@ -15,11 +15,11 @@ const sumStrings = (a, b) => {
   a = a.padStart(b.length, '0');
   b = b.padStart(a.length, '0');
   for (let i = a.length - 1; i >= 0; i--) {
-    tmp = ~~a[i] + ~~b[i] + tmp;
-    sum = (tmp % 10).toString() + sum;
-    tmp = tmp.toString().length === 1 ? 0 : 1;
+    tmp += +a[i] + +b[i];
+    sum = tmp % 10 + sum;
+    tmp = +(tmp >= 10);
   }
-  if (tmp === 1) sum = '1' + sum;
+  if (tmp) sum = '1' + sum;
   // Removing leading zeros, if any
   return sum.replace(/^0+/, '');
 };
