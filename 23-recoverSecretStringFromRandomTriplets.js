@@ -15,19 +15,19 @@ in one of the triplets given to you.
 
 const recoverSecret = triplets => {
   let result = '',
-      log = true;
+    log = true;
   // We are getting list of all chars as result variable
   for (let i = 0; i < triplets.length; i++) {
     for (let j = 0; j < triplets[i].length; j++) {
-      if(result.indexOf(triplets[i][j]) === -1) result += triplets[i][j];
+      if (!result.includes(triplets[i][j])) result += triplets[i][j];
     }
   }
   // We iterate through all chars and arranging them in result
-  while(log) {
+  while (log) {
     log = false;
     for (let i = 0; i < triplets.length; i++) {
       for (let j = 0; j < triplets[i].length - 1; j++) {
-        if(result.indexOf(triplets[i][j]) > result.indexOf(triplets[i][j + 1])) {
+        if (result.indexOf(triplets[i][j]) > result.indexOf(triplets[i][j + 1])) {
           result = result
             .replace(triplets[i][j], triplets[i][j + 1])
             .replace(triplets[i][j + 1], triplets[i][j]);
@@ -40,13 +40,13 @@ const recoverSecret = triplets => {
 };
 
 const triplets = [
-  ['t','u','p'],
-  ['w','h','i'],
-  ['t','s','u'],
-  ['a','t','s'],
-  ['h','a','p'],
-  ['t','i','s'],
-  ['w','h','s']
+  ['t', 'u', 'p'],
+  ['w', 'h', 'i'],
+  ['t', 's', 'u'],
+  ['a', 't', 's'],
+  ['h', 'a', 'p'],
+  ['t', 'i', 's'],
+  ['w', 'h', 's']
 ];
 
-console.log(recoverSecret(triplets));
+console.log(recoverSecret(triplets)); // whatisup
